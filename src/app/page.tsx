@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import How from "@/app/how";
 import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -10,7 +11,7 @@ import Newsletter from "@/app/newsletter";
 import Hero from "@/app/hero";
 import { useAuth } from "@/app/authContext";
 import { useRouter } from "next/navigation";
-import { Text, Button, Box, VStack, Flex } from "@chakra-ui/react";
+import { Text, Button, Box, VStack, Flex, Heading } from "@chakra-ui/react";
 
 export default function Home() {
   useEffect(() => {
@@ -66,8 +67,9 @@ export default function Home() {
           />
         </Box>
       </Flex>
-
+      <How />
       <Testimonial />
+      <Heading>Why Carefinder?</Heading>
       <Flex
         w="full"
         align="center"
@@ -77,10 +79,9 @@ export default function Home() {
         direction={{ base: "column", md: "row" }}
         spacing={8}
       >
+        
         <VStack align="start" spacing={4} maxW="lg" textAlign={{ base: "center", md: "left" }}>
-          <Text fontSize="2xl" fontWeight="bold">
-            Why Carefinder?
-          </Text>
+          
           <Text fontSize="lg" color="gray.600">
           With the growing need for accessible healthcare information, Carefinder was created to address the challenge of finding reliable hospital information. Our platform aims to bridge the gap between healthcare providers and patients by providing accurate and up-to-date hospital data.
           </Text>

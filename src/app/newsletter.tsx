@@ -1,7 +1,8 @@
+"use client";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { Box, Text, Flex, Button } from "@chakra-ui/react";
+import { Box, Text, Flex, Button, Input } from "@chakra-ui/react";
 
 export default function Newsletter() {
   useEffect(() => {
@@ -11,17 +12,38 @@ export default function Newsletter() {
   }, []);
 
   return (
-    <Box className="container mx-auto px-4 py-8">
-      <Text data-aos="zoom-in" fontSize="3xl" fontWeight="bold" textAlign="center" mb={6}>
+    <Box w="100%" bg="purple.500" py={10}>
+      <Text
+        data-aos="zoom-in"
+        fontSize="3xl"
+        fontWeight="bold"
+        textAlign="center"
+        mb={6}
+        color="white"
+      >
         Newsletter
       </Text>
-      <Flex justifyContent="center">
-        <Box className="bg-purple-500 p-6 rounded shadow-md w-full max-w-xl" data-aos="zoom-in">
-          <Text className="text-2xl font-bold text-center mb-4">Connecting You To Care!</Text>
-          <Text className="py-3 font-medium text-center mb-4">Subscribe to our newsletter to get updates on our latest news</Text>
+      <Flex justifyContent="center" alignItems="center">
+        <Box p={6} rounded="md" shadow="md" w="full" maxW="xl" bg="white">
+          <Text fontSize="2xl" fontWeight="bold" textAlign="center" mb={4}>
+            Connecting You To Care!
+          </Text>
+          <Text py={3} fontWeight="medium" textAlign="center" mb={4}>
+            Subscribe to our newsletter to get updates on our latest news
+          </Text>
           <Flex justifyContent="center">
-            <input type="email" placeholder="Enter email" className="w-full p-2 my-4 border border-gray-300 rounded" />
-            <Button colorScheme="purple" ml={2}>Subscribe</Button>
+            <Input
+              type="email"
+              placeholder="Enter email"
+              w="70%"
+              p={2}
+              my={4}
+              borderColor="gray.300"
+              borderRadius="md"
+            />
+            <Button colorScheme="purple" ml={2}>
+              Subscribe
+            </Button>
           </Flex>
         </Box>
       </Flex>
