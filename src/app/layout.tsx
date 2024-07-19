@@ -3,6 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { AuthProvider } from "@/app/authContext";
 
 export const metadata: Metadata = {
   title: "Carefinder",
@@ -17,11 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <AuthProvider>
         <ChakraProvider>
           <Navbar />
           {children}
           <Footer />
           </ChakraProvider>
+          </AuthProvider>
       </body>
     </html>
   );
