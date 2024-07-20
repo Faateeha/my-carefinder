@@ -22,7 +22,7 @@ const AdminDashboard = () => {
           router.push("/");
         }
       } else if (!loading && !user) {
-        router.push("/admin-login");
+        router.push("/admin");
       }
     };
     checkAdmin();

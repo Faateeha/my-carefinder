@@ -41,18 +41,18 @@ const AdminLogin = () => {
   }, [user, router]);
 
   return (
-    <Box 
+    <Box
       display="flex"
       justifyContent="center"
       alignItems="center"
       minHeight="100vh"
       bg="gray.50"
     >
-      <Box 
-        maxW="md" 
-        borderWidth={1} 
-        borderRadius="lg" 
-        boxShadow="lg" 
+      <Box
+        maxW="md"
+        borderWidth={1}
+        borderRadius="lg"
+        boxShadow="lg"
         p={8}
         bg="white"
       >
@@ -81,6 +81,9 @@ const AdminLogin = () => {
           </Button>
           {loading && <Text color="gray.500">Loading...</Text>}
           {error && <Text color="red.500">Error: {error.message}</Text>}
+          <Button colorScheme="purple" onClick={() => router.push("/adminreg")}>
+            Become an Admin
+          </Button>
         </VStack>
       </Box>
     </Box>
@@ -88,4 +91,3 @@ const AdminLogin = () => {
 };
 
 export default AdminLogin;
-
