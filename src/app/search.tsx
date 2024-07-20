@@ -21,11 +21,15 @@ const SearchComponent: React.FC = () => {
     const value = e.target.value.toLowerCase();
     setQuery(value);
 
-    const results = hospitalData.filter(hospital =>
-      hospital.address.toLowerCase().includes(value)
-    );
+    if (value) {
+      const results = hospitalData.filter(hospital =>
+        hospital.address.toLowerCase().includes(value)
+      );
+      setFilteredHospitals(results);
+    } else {
+      setFilteredHospitals([]);
+    }
 
-    setFilteredHospitals(results);
     setPage(0);
   };
 

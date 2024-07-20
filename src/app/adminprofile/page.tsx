@@ -1,9 +1,10 @@
 "use client";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, firestore } from "@/app/firebase";
+import { auth, db } from "@/app/firebase";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Box, Text, Spinner, Center } from "@chakra-ui/react";
+import { doc, getDoc } from "firebase/firestore";
 
 const AdminDashboard = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -11,17 +12,20 @@ const AdminDashboard = () => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    if (!loading && user) {
-      firestore.collection('users').doc(user.uid).get().then(doc => {
-        if (doc.exists && doc.data()?.role === "admin") {
+    const checkAdmin = async () => {
+      if (!loading && user) {
+        const userDoc = doc(db, "users", user.uid);
+        const docSnap = await getDoc(userDoc);
+        if (docSnap.exists() && docSnap.data()?.role === "admin") {
           setIsAdmin(true);
         } else {
           router.push("/");
         }
-      });
-    } else if (!loading && !user) {
-      router.push("/admin-login");
-    }
+      } else if (!loading && !user) {
+        router.push("/admin-login");
+      }
+    };
+    checkAdmin();
   }, [user, loading, router]);
 
   if (loading) {
@@ -45,10 +49,10 @@ const AdminDashboard = () => {
       <Text fontSize="3xl" fontWeight="bold">
         Admin Dashboard
       </Text>
-      {/* Add your admin dashboard components here */}
       <Text>Hello Admin</Text>
     </Box>
   );
 };
 
 export default AdminDashboard;
+

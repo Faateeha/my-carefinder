@@ -1,10 +1,14 @@
-import { useRouter } from 'next/navigation';
+
+
+"use client";
+
+import { usePathname } from 'next/navigation';
 import hospitalData from '@/data/data.json';
 import { Box, Text } from '@chakra-ui/react';
 
 const HospitalDetail = () => {
-  const router = useRouter();
-  const { name } = router.query;
+  const pathname = usePathname();
+  const name = pathname.split('/').pop();
 
   const hospital = hospitalData.find((h) =>
     encodeURIComponent(h["Hospital name"].toLowerCase().replace(/\s+/g, '-')) === name
