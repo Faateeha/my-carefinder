@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase";
 import Link from "next/link";
-import { Button, Input, Text, Box, VStack } from "@chakra-ui/react";
+import { Button, Input, Text, Box, VStack, Image } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 
 const SignIn: React.FC = () => {
@@ -26,6 +26,7 @@ const SignIn: React.FC = () => {
       setError(error.message);
     }
   };
+
   const handleGoogleSignIn = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -35,11 +36,15 @@ const SignIn: React.FC = () => {
       setError(error.message);
     }
   };
+
   return (
-    <Box className="flex justify-center items-center min-h-screen ">
+    <Box className="flex flex-col lg:flex-row min-h-screen items-center lg:items-start mt-8 lg:justify-center">
+      <Box className="hidden lg:block lg:w-1/2 p-4">
+        <Image src="/Images/signup-carefinder.avif" alt="Sign In" boxSize="full" objectFit="cover" />
+      </Box>
       <VStack
         spacing={4}
-        className="bg-white p-6 rounded shadow-md w-full max-w-sm"
+        className="bg-white p-6 rounded shadow-md w-full max-w-md mx-auto lg:w-1/2 lg:mt-36 mt-8 md:mt-28"
       >
         <Text className="text-2xl">Sign In</Text>
         {error && <Text color="red.500">{error}</Text>}
@@ -49,7 +54,7 @@ const SignIn: React.FC = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <Input
-          placeholder="password"
+          placeholder="Password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -74,3 +79,4 @@ const SignIn: React.FC = () => {
 };
 
 export default SignIn;
+

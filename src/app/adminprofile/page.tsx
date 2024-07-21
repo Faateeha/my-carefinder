@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Box, Text, Spinner, Center } from "@chakra-ui/react";
 import { doc, getDoc } from "firebase/firestore";
+import MarkDownEditor from "@/app/markdown";  
 
 const AdminDashboard = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -50,6 +51,7 @@ const AdminDashboard = () => {
         Admin Dashboard
       </Text>
       <Text>Hello Admin</Text>
+      <MarkDownEditor />
     </Box>
   );
 };

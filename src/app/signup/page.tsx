@@ -10,7 +10,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import Link from "next/link";
-import { Button, Input, Text, Box, VStack } from "@chakra-ui/react";
+import { Button, Input, Text, Box, VStack, Image } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 
 const SignUp: React.FC = () => {
@@ -46,10 +46,13 @@ const SignUp: React.FC = () => {
   };
 
   return (
-    <Box className="flex justify-center items-center min-h-screen ">
+    <Box className="flex flex-col lg:flex-row min-h-screen items-center lg:items-start lg:justify-center mt-8">
+      <Box className="hidden lg:block lg:w-1/2 p-4">
+        <Image src="/Images/signup-carefinder.avif" alt="Sign Up" boxSize="full" objectFit="cover" />
+      </Box>
       <VStack
         spacing={4}
-        className="bg-white p-6 rounded shadow-md w-full max-w-sm"
+        className="bg-white p-6 rounded shadow-md w-full max-w-md mx-auto lg:w-1/2 lg:mt-36 mt-8 md:mt-28"
       >
         <Text className="text-2xl">Sign Up</Text>
         {error && <Text color="red.500">{error}</Text>}
@@ -74,7 +77,6 @@ const SignUp: React.FC = () => {
         </Button>
         <Text>or</Text>
         <Button className="text-black bg-white" onClick={handleGoogleSignUp}>
-          {" "}
           <FcGoogle />
           <span className="px-2">Sign Up with Google</span>
         </Button>
@@ -90,3 +92,4 @@ const SignUp: React.FC = () => {
 };
 
 export default SignUp;
+
