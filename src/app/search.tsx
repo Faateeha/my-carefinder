@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import hospitalData from "@/data/data.json";
 import { Box, Input, List, ListItem, Button, Text } from '@chakra-ui/react';
 import Link from 'next/link';
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "@/app/firebase";
 
 const SearchComponent: React.FC = () => {
   interface HospitalData {
@@ -15,22 +17,46 @@ const SearchComponent: React.FC = () => {
   const [query, setQuery] = useState('');
   const [filteredHospitals, setFilteredHospitals] = useState<HospitalData[]>([]);
   const [page, setPage] = useState(0);
+  const [hospitals, setHospitals] = useState<HospitalData[]>([]);
   const itemsPerPage = 10;
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.toLowerCase();
-    setQuery(value);
+  useEffect(() => {
+    const loadHospitals = async () => {
+      try {
+        const firebaseHospitals = await fetchHospitalsFromFirebase();
+        const combinedHospitals = [...hospitalData, ...firebaseHospitals];
+        setHospitals(combinedHospitals);
+      } catch (error) {
+        console.error("Error loading hospitals:", error);
+      }
+    };
 
-    if (value) {
-      const results = hospitalData.filter(hospital =>
-        hospital.address.toLowerCase().includes(value)
+    loadHospitals();
+  }, []);
+
+  useEffect(() => {
+    const searchHospitals = (query: string) => {
+      const results = hospitals.filter(hospital =>
+        hospital["Hospital name"]?.toLowerCase().includes(query.toLowerCase())
       );
       setFilteredHospitals(results);
-    } else {
-      setFilteredHospitals([]);
-    }
+      setPage(0);
+    };
 
-    setPage(0);
+    searchHospitals(query);
+  }, [query, hospitals]);
+
+  const fetchHospitalsFromFirebase = async (): Promise<HospitalData[]> => {
+    const hospitalsCollection = collection(db, "hospitals");
+    const snapshot = await getDocs(hospitalsCollection);
+    return snapshot.docs.map(doc => {
+      const data = doc.data();
+      return {
+        "Hospital name": data.name || "",
+        address: data.address || "",
+        contact: data.contact || ""
+      } as HospitalData;
+    });
   };
 
   const paginatedHospitals = filteredHospitals.slice(
@@ -41,9 +67,9 @@ const SearchComponent: React.FC = () => {
   return (
     <Box p={6}>
       <Input
-        placeholder="Search by location"
+        placeholder="Search by hospital name"
         value={query}
-        onChange={handleSearch}
+        onChange={(e) => setQuery(e.target.value)}
         mb={4}
         variant="filled"
       />
@@ -65,13 +91,15 @@ const SearchComponent: React.FC = () => {
         })}
       </List>
       <Box mt={4} display="flex" justifyContent="space-between">
-        <Button colorScheme="purple"
+        <Button
+          colorScheme="purple"
           onClick={() => setPage(page - 1)}
           disabled={page === 0}
         >
           Previous
         </Button>
-        <Button colorScheme="purple"
+        <Button
+          colorScheme="purple"
           onClick={() => setPage(page + 1)}
           disabled={(page + 1) * itemsPerPage >= filteredHospitals.length}
         >
