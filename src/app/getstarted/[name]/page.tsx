@@ -1,10 +1,17 @@
 "use client";
-
+import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import hospitalData from '@/data/data.json';
 import { Box, Text, VStack } from '@chakra-ui/react';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const HospitalDetail = () => {
+  useEffect(() => {
+    Aos.init({
+      duration: 1000
+    })
+  }, []);
   const pathname = usePathname();
   const name = pathname.split('/').pop();
 
@@ -20,7 +27,7 @@ const HospitalDetail = () => {
     .replace(/\s+/g, '')}@gmail.com`;
 
   return (
-    <VStack className="min-h-screen justify-center">
+    <VStack data-aos="flip-right" className="min-h-screen justify-center">
       <Box className="max-w-2xl mx-auto p-6 bg-purple-100 rounded-lg shadow-lg">
         <Text fontSize="3xl" fontWeight="bold" className="text-purple-700 mb-4">
           {hospital["Hospital name"]}

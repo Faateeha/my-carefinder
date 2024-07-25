@@ -1,13 +1,20 @@
-"use client";
 
+"use client";
 import { useState, useEffect } from 'react';
 import hospitalData from "@/data/data.json";
-import { Box, Input, List, ListItem, Button, Text } from '@chakra-ui/react';
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { Box, Input, SimpleGrid, List, ListItem, Button, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/app/firebase";
 
 const SearchComponent: React.FC = () => {
+  useEffect(() => {
+    Aos.init({
+      duration: 1000
+    })
+  }, []);
   interface HospitalData {
     "Hospital name": string;
     address: string;
@@ -18,7 +25,7 @@ const SearchComponent: React.FC = () => {
   const [filteredHospitals, setFilteredHospitals] = useState<HospitalData[]>([]);
   const [page, setPage] = useState(0);
   const [hospitals, setHospitals] = useState<HospitalData[]>([]);
-  const itemsPerPage = 10;
+  const itemsPerPage = 12;
 
   useEffect(() => {
     const loadHospitals = async () => {
@@ -37,7 +44,7 @@ const SearchComponent: React.FC = () => {
   useEffect(() => {
     const searchHospitals = (query: string) => {
       const results = hospitals.filter(hospital =>
-        hospital["Hospital name"]?.toLowerCase().includes(query.toLowerCase())
+        hospital.address?.toLowerCase().includes(query.toLowerCase())
       );
       setFilteredHospitals(results);
       setPage(0);
@@ -65,30 +72,32 @@ const SearchComponent: React.FC = () => {
   );
 
   return (
-    <Box p={6}>
+    <Box p={6} dat-aos="zoom-in-down">
       <Input
-        placeholder="Search by hospital name"
+        placeholder="Enter your location"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         mb={4}
         variant="filled"
       />
-      <List spacing={3}>
-        {paginatedHospitals.map((hospital) => {
-          const nameSlug = encodeURIComponent(hospital["Hospital name"].toLowerCase().replace(/\s+/g, '-'));
-          return (
-            <ListItem key={nameSlug} border="1px" borderColor="gray.200" p={4} borderRadius="md" boxShadow="sm">
-              <Link href={`/getstarted/${nameSlug}`}>
-                <Text fontSize="lg" fontWeight="bold" cursor="pointer" _hover={{ color: "purple.500" }}>
-                  {hospital["Hospital name"]}
+      <List>
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={5}>
+          {paginatedHospitals.map((hospital) => {
+            const nameSlug = encodeURIComponent(hospital["Hospital name"].toLowerCase().replace(/\s+/g, '-'));
+            return (
+              <ListItem key={nameSlug} border="1px" borderColor="gray.100" p={4} borderRadius="md" boxShadow="sm" backgroundColor="purple.200">
+                <Link href={`/getstarted/${nameSlug}`}>
+                  <Text fontSize="lg" fontWeight="bold" cursor="pointer" _hover={{ color: "purple.500" }}>
+                    {hospital["Hospital name"]}
+                  </Text>
+                </Link>
+                <Text fontSize="sm" color="gray.600">
+                  {hospital.address}
                 </Text>
-              </Link>
-              <Text fontSize="sm" color="gray.600">
-                {hospital.address}
-              </Text>
-            </ListItem>
-          );
-        })}
+              </ListItem>
+            );
+          })}
+        </SimpleGrid>
       </List>
       <Box mt={4} display="flex" justifyContent="space-between">
         <Button
@@ -111,3 +120,4 @@ const SearchComponent: React.FC = () => {
 };
 
 export default SearchComponent;
+

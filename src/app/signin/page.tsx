@@ -1,5 +1,5 @@
 "use client";
-
+import {useEffect} from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -11,8 +11,15 @@ import { auth } from "../firebase";
 import Link from "next/link";
 import { Button, Input, Text, Box, VStack, Image, Stack } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const SignIn: React.FC = () => {
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+    });
+  }, []);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -49,6 +56,7 @@ const SignIn: React.FC = () => {
       >
         <Box display={{ base: "none", lg: "block" }} flex="1">
           <Image
+          data-aos="fade-right"
             src="/Images/signin.png"
             alt="Sign In"
             boxSize="full"
@@ -56,6 +64,7 @@ const SignIn: React.FC = () => {
           />
         </Box>
         <VStack
+        data-aos="fade-left"
           spacing={4}
           bg="white"
           p={6}
