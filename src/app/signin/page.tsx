@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase";
 import Link from "next/link";
-import { Button, Input, Text, Box, VStack, Image } from "@chakra-ui/react";
+import { Button, Input, Text, Box, VStack, Image, Stack } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 
 const SignIn: React.FC = () => {
@@ -38,45 +38,73 @@ const SignIn: React.FC = () => {
   };
 
   return (
-    <Box className="flex flex-col lg:flex-row min-h-screen items-center lg:items-start mt-8 lg:justify-center">
-      <Box className="hidden lg:block lg:w-1/2 p-4">
-        <Image src="/Images/signup-carefinder.avif" alt="Sign In" boxSize="full" objectFit="cover" />
-      </Box>
-      <VStack
-        spacing={4}
-        className="bg-white p-6 rounded shadow-md w-full max-w-md mx-auto lg:w-1/2 lg:mt-36 mt-8 md:mt-28"
+    <Box className="min-h-screen flex flex-col justify-center items-center">
+      <Stack
+        direction={{ base: "column", lg: "row" }}
+        spacing={0}
+        alignItems="center"
+        width="full"
+        maxW="6xl"
+        mx="auto"
       >
-        <Text className="text-2xl">Sign In</Text>
-        {error && <Text color="red.500">{error}</Text>}
-        <Input
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <Input
-          placeholder="Password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <Button colorScheme="purple" onClick={handleSignin}>
-          Sign In
-        </Button>
-        <Text>or</Text>
-        <Button className="text-black bg-white" onClick={handleGoogleSignIn}>
-          <FcGoogle />
-          <span className="px-2">Sign In with Google</span>
-        </Button>
-        <Link href="/signup" className="hover:underline">
-          Don&apos;t have an account? Sign Up
-        </Link>
-        <Link href="/">
-          <b>Go back to home page</b>
-        </Link>
-      </VStack>
+        <Box display={{ base: "none", lg: "block" }} flex="1">
+          <Image
+            src="/Images/signin.png"
+            alt="Sign In"
+            boxSize="full"
+            objectFit="cover"
+          />
+        </Box>
+        <VStack
+          spacing={4}
+          bg="white"
+          p={6}
+          rounded="md"
+          shadow="lg"
+          w="full"
+          maxW="md"
+          mx="auto"
+          mt={{ base: 8, lg: 0 }}
+        >
+          <Text fontSize="2xl" fontWeight="bold">Sign In</Text>
+          {error && <Text color="red.500">{error}</Text>}
+          <Input
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            placeholder="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button colorScheme="purple" onClick={handleSignin} w="full">
+            Sign In
+          </Button>
+          <Text>or</Text>
+          <Button
+            variant="outline"
+            onClick={handleGoogleSignIn}
+            w="full"
+            leftIcon={<FcGoogle />}
+          >
+            Sign In with Google
+          </Button>
+          <Link href="/signup">
+            <Text color="purple.500" _hover={{ textDecoration: "underline" }}>
+              Don't have an account? Sign Up
+            </Text>
+          </Link>
+          <Link href="/">
+            <Text color="purple.500" _hover={{ textDecoration: "underline" }}>
+              <b>Go back to home page</b>
+            </Text>
+          </Link>
+        </VStack>
+      </Stack>
     </Box>
   );
 };
 
 export default SignIn;
-

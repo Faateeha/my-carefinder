@@ -9,6 +9,8 @@ import "aos/dist/aos.css";
 import Testimonial from "@/app/testimonial";
 import Newsletter from "@/app/newsletter";
 import Hero from "@/app/hero";
+import { useRouter } from 'next/navigation';
+import { useAuth } from "@/app/authContext";
 import { Text, Button, Box, VStack, Flex, Heading } from "@chakra-ui/react";
 
 export default function Home() {
@@ -17,6 +19,17 @@ export default function Home() {
       duration: 1000,
     });
   }, []);
+
+  const { isLoggedIn } = useAuth();
+  const router = useRouter();
+
+  const handleGetStartedClick = () => {
+    if (isLoggedIn) {
+      router.push('/getstarted');
+    } else {
+      router.push('/signin');
+    }
+  };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center space-y-12">
@@ -45,12 +58,8 @@ export default function Home() {
             health is our priority, and we&apos;re here to connect you to the
             best care available.
           </Text>
-          <Link href="/getstarted">
-            {" "}
-            <Button colorScheme="purple" size="lg" className="mt-4">
-              Get Started
-            </Button>
-          </Link>
+          <Button colorScheme="purple" size="lg" className="mt-4" onClick={handleGetStartedClick}>Get Started</Button>
+          
         </VStack>
 
         <Box flexShrink={0} w="full" maxW="md" mt={{ base: 8, md: 0 }}>

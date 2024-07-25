@@ -10,7 +10,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import Link from "next/link";
-import { Button, Input, Text, Box, VStack, Image } from "@chakra-ui/react";
+import { Button, Input, Text, Box, VStack, Image, Stack } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 
 const SignUp: React.FC = () => {
@@ -46,50 +46,78 @@ const SignUp: React.FC = () => {
   };
 
   return (
-    <Box className="flex flex-col lg:flex-row min-h-screen items-center lg:items-start lg:justify-center mt-8">
-      <Box className="hidden lg:block lg:w-1/2 p-4">
-        <Image src="/Images/signup-carefinder.avif" alt="Sign Up" boxSize="full" objectFit="cover" />
-      </Box>
-      <VStack
-        spacing={4}
-        className="bg-white p-6 rounded shadow-md w-full max-w-md mx-auto lg:w-1/2 lg:mt-36 mt-8 md:mt-28"
+    <Box className="min-h-screen flex flex-col justify-center items-center">
+      <Stack
+        direction={{ base: "column", lg: "row" }}
+        spacing={0}
+        alignItems="center"
+        width="full"
+        maxW="6xl"
+        mx="auto"
       >
-        <Text className="text-2xl">Sign Up</Text>
-        {error && <Text color="red.500">{error}</Text>}
-        <Input
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <Input
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <Input
-          placeholder="Password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <Button colorScheme="purple" onClick={handleSignUp}>
-          Sign Up
-        </Button>
-        <Text>or</Text>
-        <Button className="text-black bg-white" onClick={handleGoogleSignUp}>
-          <FcGoogle />
-          <span className="px-2">Sign Up with Google</span>
-        </Button>
-        <Link href="/signin" className="hover:underline">
-          Already have an account? Sign In
-        </Link>
-        <Link href="/">
-          <b>Go back to home page</b>
-        </Link>
-      </VStack>
+        <Box display={{ base: "none", lg: "block" }} flex="1">
+          <Image
+            src="/Images/signin.png"
+            alt="Sign Up"
+            boxSize="full"
+            objectFit="cover"
+          />
+        </Box>
+        <VStack
+          spacing={4}
+          bg="white"
+          p={6}
+          rounded="md"
+          shadow="lg"
+          w="full"
+          maxW="md"
+          mx="auto"
+          mt={{ base: 8, lg: 0 }}
+        >
+          <Text fontSize="2xl" fontWeight="bold">Sign Up</Text>
+          {error && <Text color="red.500">{error}</Text>}
+          <Input
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <Input
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            placeholder="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button colorScheme="purple" onClick={handleSignUp} w="full">
+            Sign Up
+          </Button>
+          <Text>or</Text>
+          <Button
+            variant="outline"
+            onClick={handleGoogleSignUp}
+            w="full"
+            leftIcon={<FcGoogle />}
+          >
+            Sign Up with Google
+          </Button>
+          <Link href="/signin">
+            <Text color="purple.500" _hover={{ textDecoration: "underline" }}>
+              Already have an account? Sign In
+            </Text>
+          </Link>
+          <Link href="/">
+            <Text color="purple.500" _hover={{ textDecoration: "underline" }}>
+              <b>Go back to home page</b>
+            </Text>
+          </Link>
+        </VStack>
+      </Stack>
     </Box>
   );
 };
 
 export default SignUp;
-
