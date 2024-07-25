@@ -1,11 +1,12 @@
 "use client";
+
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "@/app/firebase";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Box, Text, Spinner, Center } from "@chakra-ui/react";
+import { Box, Text, Spinner, Center, Container } from "@chakra-ui/react";
 import { doc, getDoc } from "firebase/firestore";
-import MarkDownEditor from "@/app/markdown";  
+import MarkDownEditor from "@/app/markdown";
 
 const AdminDashboard = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -46,15 +47,27 @@ const AdminDashboard = () => {
   }
 
   return (
-    <Box className="container my-10 mx-auto px-4 py-20 text-purple-400">
-      <Text fontSize="3xl" fontWeight="bold">
-        Admin Dashboard
-      </Text>
-      <Text>Hello Admin</Text>
-      <MarkDownEditor />
-    </Box>
+    <Container maxW="container.lg" p={6}>
+      <Box
+        bg="white"
+        borderWidth="1px"
+        borderRadius="lg"
+        boxShadow="lg"
+        p={6}
+        my={10}
+      >
+        <Text fontSize="4xl" fontWeight="bold" mb={4} color="purple.600">
+          Admin Dashboard
+        </Text>
+        <Text fontSize="xl" mb={6}>
+          Welcome, Admin!
+        </Text>
+        <MarkDownEditor />
+      </Box>
+    </Container>
   );
 };
 
 export default AdminDashboard;
+
 

@@ -12,27 +12,32 @@ const AdminLogin = () => {
   const [user, loading, error] = useAuthState(auth);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [authError, setAuthError] = useState("");
   const router = useRouter();
 
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-    } catch (err) {
-      console.error("Login error", err);
+    } catch (err: any) {
+      setAuthError(err.message);
     }
   };
 
   useEffect(() => {
     if (user) {
       const checkAdminRole = async () => {
-        const userDoc = doc(db, "users", user.uid);
-        const docSnap = await getDoc(userDoc);
+        try {
+          const userDoc = doc(db, "users", user.uid);
+          const docSnap = await getDoc(userDoc);
 
-        if (docSnap.exists() && docSnap.data()?.role === "admin") {
-          router.push("/adminprofile");
-        } else {
-          auth.signOut();
-          alert("You are not authorized to access this page.");
+          if (docSnap.exists() && docSnap.data()?.role === "admin") {
+            router.push("/adminprofile");
+          } else {
+            auth.signOut();
+            alert("You are not authorized to access this page.");
+          }
+        } catch (error) {
+          console.error("Error checking admin role: ", error);
         }
       };
 
@@ -80,7 +85,7 @@ const AdminLogin = () => {
             Login
           </Button>
           {loading && <Text color="gray.500">Loading...</Text>}
-          {error && <Text color="red.500">Error: {error.message}</Text>}
+          {authError && <Text color="red.500">Error: {authError}</Text>}
           <Button colorScheme="purple" onClick={() => router.push("/adminreg")}>
             Become an Admin
           </Button>
@@ -91,3 +96,4 @@ const AdminLogin = () => {
 };
 
 export default AdminLogin;
+
