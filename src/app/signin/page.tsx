@@ -1,11 +1,11 @@
 "use client";
-import {useEffect} from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "../firebase";
 import Link from "next/link";
@@ -20,6 +20,7 @@ const SignIn: React.FC = () => {
       duration: 1000,
     });
   }, []);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -29,7 +30,7 @@ const SignIn: React.FC = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       router.push("/getstarted");
-    } catch (error) {
+    } catch (error: any) {
       setError(error.message);
     }
   };
@@ -39,6 +40,19 @@ const SignIn: React.FC = () => {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
       router.push("/");
+    } catch (error: any) {
+      setError(error.message);
+    }
+  };
+
+  const handleForgotPassword = async () => {
+    if (!email) {
+      setError("Please enter your email to reset password.");
+      return;
+    }
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setError("Password reset email sent!");
     } catch (error: any) {
       setError(error.message);
     }
@@ -56,7 +70,7 @@ const SignIn: React.FC = () => {
       >
         <Box display={{ base: "none", lg: "block" }} flex="1">
           <Image
-          data-aos="fade-right"
+            data-aos="fade-right"
             src="/Images/signin.png"
             alt="Sign In"
             boxSize="full"
@@ -64,7 +78,7 @@ const SignIn: React.FC = () => {
           />
         </Box>
         <VStack
-        data-aos="fade-left"
+          data-aos="fade-left"
           spacing={4}
           bg="white"
           p={6}
@@ -90,6 +104,13 @@ const SignIn: React.FC = () => {
           />
           <Button colorScheme="purple" onClick={handleSignin} w="full">
             Sign In
+          </Button>
+          <Button
+            variant="link"
+            colorScheme="purple"
+            onClick={handleForgotPassword}
+          >
+            Forgot Password?
           </Button>
           <Text>or</Text>
           <Button
