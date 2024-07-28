@@ -8,6 +8,7 @@ import { Box, Input, SimpleGrid, List, ListItem, Button, Text } from '@chakra-ui
 import Link from 'next/link';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/app/firebase";
+import { Parser } from 'json2csv';
 
 const SearchComponent: React.FC = () => {
   useEffect(() => {
@@ -66,6 +67,19 @@ const SearchComponent: React.FC = () => {
     });
   };
 
+  const exportToCSV = () => {
+    const parser = new Parser();
+    const csv = parser.parse(filteredHospitals);
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'hospitals.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const paginatedHospitals = filteredHospitals.slice(
     page * itemsPerPage,
     (page + 1) * itemsPerPage
@@ -99,6 +113,9 @@ const SearchComponent: React.FC = () => {
           })}
         </SimpleGrid>
       </List>
+      <Button colorScheme="purple" mt={4} onClick={exportToCSV}>
+        Export to CSV
+      </Button>
       <Box mt={4} display="flex" justifyContent="space-between">
         <Button
           colorScheme="purple"
