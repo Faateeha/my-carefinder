@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/app/firebase";
 import { Parser } from 'json2csv';
+import shareHospitals from "@/app/sharehospital";
 
 const SearchComponent: React.FC = () => {
   useEffect(() => {
@@ -79,6 +80,20 @@ const SearchComponent: React.FC = () => {
     link.click();
     document.body.removeChild(link);
   };
+  const handleShare = () => {
+    const maxHospitals = 5; // Limit to the first 5 hospitals to avoid exceeding URL length
+    const limitedHospitals = filteredHospitals.slice(0, maxHospitals);
+  
+    const encodedData = encodeURIComponent(JSON.stringify(limitedHospitals));
+    const shareUrl = `${window.location.origin}/share-hospitals?data=${encodedData}`;
+  
+    const mailtoLink = `mailto:?subject=Check out this list of hospitals&body=I found this list of hospitals using Carefinder:%0A%0A${shareUrl}%0A%0AOnly the first ${maxHospitals} hospitals are included.`;
+  
+    window.location.href = mailtoLink;
+  };
+  
+  
+  
 
   const paginatedHospitals = filteredHospitals.slice(
     page * itemsPerPage,
@@ -116,6 +131,10 @@ const SearchComponent: React.FC = () => {
       <Button colorScheme="purple" mt={4} onClick={exportToCSV}>
         Export to CSV
       </Button>
+      <Button colorScheme="purple" mt={4} ml={3} onClick={handleShare}>
+  Share Hospitals
+</Button>
+
       <Box mt={4} display="flex" justifyContent="space-between">
         <Button
           colorScheme="purple"
