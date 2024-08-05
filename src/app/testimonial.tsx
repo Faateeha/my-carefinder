@@ -47,7 +47,7 @@ export default function Testimonial() {
             w={{ base: "full", md: "lg" }}
             m={4}
             textAlign="center"
-            className="bg-purple-300"
+            className="bg-blue-500"
           >
             <Text fontSize="lg" mb={4}>
               "{review.review}"

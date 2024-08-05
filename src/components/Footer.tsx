@@ -7,7 +7,7 @@ import { Box, Text, Flex, Link, Stack, Divider } from "@chakra-ui/react";
 
 const Footer: React.FC = () => {
   return (
-    <Box as="footer" py={10} className="mt-8">
+    <Box as="footer"  className="pt-5 bg-gray-300">
       <Flex
         className="container mx-auto"
         direction={{ base: 'column', md: 'row', lg: 'row' }}
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
         </Flex>
       </Flex>
       <Divider my={6} />
-      <Box bg="purple.600" py={2}>
+      <Box bg="blue.600" py={2}>
         <Text textAlign="center" color="white">&copy; All rights reserved. Carefinder 2024</Text>
       </Box>
     </Box>

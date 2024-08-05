@@ -5,6 +5,7 @@ import hospitalData from '@/data/data.json';
 import { Box, Text, VStack } from '@chakra-ui/react';
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Link from 'next/link';
 
 const HospitalDetail = () => {
   useEffect(() => {
@@ -28,8 +29,8 @@ const HospitalDetail = () => {
 
   return (
     <VStack data-aos="flip-right" className="min-h-screen justify-center">
-      <Box className="max-w-2xl mx-auto p-6 bg-purple-100 rounded-lg shadow-lg">
-        <Text fontSize="3xl" fontWeight="bold" className="text-purple-700 mb-4">
+      <Box className="max-w-2xl mx-auto p-6 bg-blue-400 rounded-lg shadow-lg">
+        <Text fontSize="3xl" fontWeight="bold" className="text-white mb-4">
           {hospital["Hospital name"]}
         </Text>
         <hr className="my-4" />
@@ -38,6 +39,11 @@ const HospitalDetail = () => {
           <Text fontSize="lg">Contact: {hospital.contact}</Text>
           <Text fontSize="lg">Email: {email}</Text>
         </Box>
+        <Link href="/getstarted">
+            <Text color="white" _hover={{ textDecoration: "underline" }} mt={2} className="text-center">
+              <b>Go back </b>
+            </Text>
+          </Link>
       </Box>
     </VStack>
   );

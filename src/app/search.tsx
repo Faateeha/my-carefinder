@@ -114,9 +114,9 @@ const SearchComponent: React.FC = () => {
           {paginatedHospitals.map((hospital) => {
             const nameSlug = encodeURIComponent(hospital["Hospital name"].toLowerCase().replace(/\s+/g, '-'));
             return (
-              <ListItem key={nameSlug} border="1px" borderColor="gray.100" p={4} borderRadius="md" boxShadow="sm" backgroundColor="purple.200">
+              <ListItem key={nameSlug} border="1px" borderColor="gray.100" p={4} borderRadius="md" boxShadow="sm" backgroundColor="white">
                 <Link href={`/getstarted/${nameSlug}`}>
-                  <Text fontSize="lg" fontWeight="bold" cursor="pointer" _hover={{ color: "purple.500" }}>
+                  <Text fontSize="lg" fontWeight="bold" cursor="pointer" _hover={{ color: "blue.500" }}>
                     {hospital["Hospital name"]}
                   </Text>
                 </Link>
@@ -128,23 +128,23 @@ const SearchComponent: React.FC = () => {
           })}
         </SimpleGrid>
       </List>
-      <Button colorScheme="purple" mt={4} onClick={exportToCSV}>
+      <Button colorScheme="blue" mt={4} onClick={exportToCSV}>
         Export to CSV
       </Button>
-      <Button colorScheme="purple" mt={4} ml={3} onClick={handleShare}>
+      <Button colorScheme="blue" mt={4} ml={3} onClick={handleShare}>
   Share Hospitals
 </Button>
 
       <Box mt={4} display="flex" justifyContent="space-between">
         <Button
-          colorScheme="purple"
+          colorScheme="blue"
           onClick={() => setPage(page - 1)}
           disabled={page === 0}
         >
           Previous
         </Button>
         <Button
-          colorScheme="purple"
+          colorScheme="blue"
           onClick={() => setPage(page + 1)}
           disabled={(page + 1) * itemsPerPage >= filteredHospitals.length}
         >

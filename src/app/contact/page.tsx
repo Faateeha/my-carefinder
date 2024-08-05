@@ -46,7 +46,7 @@ function Contact() {
             <Flex justify="center" pt={2}>
               <Button 
                 type="submit" 
-                colorScheme="purple" 
+                colorScheme="blue" 
                 size="md"
                 className="w-36 md:w-48"
               >

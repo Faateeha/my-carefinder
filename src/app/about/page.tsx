@@ -14,7 +14,7 @@ const About: React.FC = () => {
   return (
     <div>
       <Hero />
-      <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-white">
+      <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-200">
         <Heading as="h1" size="2xl">
           About Carefinder
         </Heading>
@@ -65,7 +65,7 @@ const About: React.FC = () => {
             textAlign={{ base: "center", md: "left" }}
             className="px-4"
           >
-            <List spacing={2} fontSize="lg">
+            <List spacing={2} fontSize="xl">
               <ListItem>
                 🔍 <strong>Search Hospitals:</strong> Easily search for
                 hospitals based on location and other criteria.
@@ -123,7 +123,7 @@ const About: React.FC = () => {
         <Text fontSize="lg">
           If you have any questions, feedback, or need support, please feel free
           to{" "}
-          <Link href="/contact" color="purple.500" className="hover:underline">
+          <Link href="/contact" color="blue.500" className="hover:underline">
             contact us
           </Link>
           .

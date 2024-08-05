@@ -32,7 +32,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center space-y-12">
+    <main className="flex min-h-screen flex-col items-center justify-center space-y-12 bg-gray-200">
       <Hero />
 
       <Flex
@@ -45,12 +45,12 @@ export default function Home() {
         spacing={8}
       >
         <VStack
-          align="start"
+          align="center"
           spacing={4}
           maxW="lg"
           textAlign={{ base: "center", md: "left" }}
         >
-          <Text fontSize="2xl" fontWeight="bold">
+          <Text fontSize="2xl" fontWeight="bold" className="sm:text-center">
             Welcome to Carefinder
           </Text>
           <Text fontSize="lg" color="gray.600">
@@ -58,7 +58,7 @@ export default function Home() {
             health is our priority, and we&apos;re here to connect you to the
             best care available.
           </Text>
-          <Button colorScheme="purple" size="lg" className="mt-4" onClick={handleGetStartedClick}>Get Started</Button>
+          <Button colorScheme="blue" size="lg" className="mt-4" onClick={handleGetStartedClick}>Get Started</Button>
           
         </VStack>
 
@@ -91,7 +91,7 @@ export default function Home() {
           maxW="lg"
           textAlign={{ base: "center", md: "left" }}
         >
-          <Text fontSize="lg" color="gray.600">
+          <Text fontSize="xl" color="gray.600">
             With the growing need for accessible healthcare information,
             Carefinder was created to address the challenge of finding reliable
             hospital information. Our platform aims to bridge the gap between

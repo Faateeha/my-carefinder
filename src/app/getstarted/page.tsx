@@ -17,7 +17,7 @@ const GetStarted: React.FC = () => {
   return (
     <Box data-aos="zoom-in-up">
       <Hero />
-      <Box p={4} textAlign="center">
+      <Box p={4} textAlign="center" className="bg-gray-200">
         <Heading as="h2" size="lg">
           Care Finder
         </Heading>

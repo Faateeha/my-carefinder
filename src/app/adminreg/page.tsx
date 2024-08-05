@@ -34,7 +34,7 @@ const AdminRegister = () => {
     <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh" bg="gray.50">
       <Box maxW="md" borderWidth={1} borderRadius="lg" boxShadow="lg" p={8} bg="white">
         <VStack spacing={6} align="stretch">
-          <Heading as="h2" size="lg" textAlign="center" color="purple.500">
+          <Heading as="h2" size="lg" textAlign="center" color="blue.500">
             Admin Registration
           </Heading>
           {error && <Text color="red.500">{error}</Text>}
@@ -49,7 +49,7 @@ const AdminRegister = () => {
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             variant="filled"
-            focusBorderColor="purple.400"
+            focusBorderColor="blue.400"
           />
           <Input
             placeholder="Password"
@@ -57,9 +57,9 @@ const AdminRegister = () => {
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             variant="filled"
-            focusBorderColor="purple.400"
+            focusBorderColor="blue.400"
           />
-          <Button colorScheme="purple" onClick={handleRegister} size="lg">
+          <Button colorScheme="blue" onClick={handleRegister} size="lg">
             Register
           </Button>
         </VStack>

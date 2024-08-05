@@ -61,11 +61,12 @@ const SignUp: React.FC = () => {
         width="full"
         maxW="6xl"
         mx="auto"
+        
       >
         <Box display={{ base: "none", lg: "block" }} flex="1">
           <Image
           data-aos="fade-right"
-            src="/Images/signin.png"
+            src="/Images/sign.png"
             alt="Sign Up"
             boxSize="full"
             objectFit="cover"
@@ -101,7 +102,7 @@ const SignUp: React.FC = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button colorScheme="purple" onClick={handleSignUp} w="full">
+          <Button colorScheme="blue" onClick={handleSignUp} w="full">
             Sign Up
           </Button>
           <Text>or</Text>
@@ -114,12 +115,12 @@ const SignUp: React.FC = () => {
             Sign Up with Google
           </Button>
           <Link href="/signin">
-            <Text color="purple.500" _hover={{ textDecoration: "underline" }}>
+            <Text color="blue.500" _hover={{ textDecoration: "underline" }}>
               Already have an account? Sign In
             </Text>
           </Link>
           <Link href="/">
-            <Text color="purple.500" _hover={{ textDecoration: "underline" }}>
+            <Text color="blue.500" _hover={{ textDecoration: "underline" }}>
               <b>Go back to home page</b>
             </Text>
           </Link>

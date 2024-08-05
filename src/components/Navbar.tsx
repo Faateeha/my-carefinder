@@ -74,13 +74,13 @@ const Navbar: React.FC = () => {
           display={{ base: "none", md: "flex" }}
         >
           <Box as="li" mx={3}>
-            <Link href="/" className="hover:underline hover:text-purple-600">Home</Link>
+            <Link href="/" className="hover:underline hover:text-blue-600">Home</Link>
           </Box>
           <Box as="li" mx={3}>
-            <Link href="/about" className="hover:underline hover:text-purple-600">About</Link>
+            <Link href="/about" className="hover:underline hover:text-blue-600">About</Link>
           </Box>
           <Box as="li" mx={3}>
-            <Link href="/contact" className="hover:underline hover:text-purple-600">Contact Us</Link>
+            <Link href="/contact" className="hover:underline hover:text-blue-600">Contact Us</Link>
           </Box>
           <Box as="li" mx={3}>
             <Link href="/admin" className="border-2 p-1 hover:bg-black hover:text-white">Admin Login</Link>
@@ -111,8 +111,8 @@ const Navbar: React.FC = () => {
             </Menu>
           ) : (
             <>
-              <Link href="/signin" className="border-2 px-3 py-2 rounded-3xl text-purple-600 border-purple-600 mx-1">Log In</Link>
-              <Link href="/signup" className="border-2 px-3 py-2 rounded-3xl bg-purple-600 border-purple-600 text-white hover:bg-white hover:text-purple-600 mx-1">Signup</Link>
+              <Link href="/signin" className="border-2 px-3 py-2 rounded-3xl text-blue-600 border-blue-600 mx-1hover:bg-white mx-1">Log In</Link>
+              <Link href="/signup" className="border-2 px-3 py-2 rounded-3xl bg-blue-600 border-blue-600 text-white hover:bg-white hover:text-blue-600 mx-1">Signup</Link>
             </>
           )}
         </Flex>
@@ -123,13 +123,13 @@ const Navbar: React.FC = () => {
         <Box pb={4} display={{ md: "none" }}>
           <Flex as="ul" listStyleType="none" flexDirection="column" alignItems="center">
             <Box as="li" m={3}>
-              <Link href="/" className="hover:underline hover:text-purple-600" onClick={onToggle}>Home</Link>
+              <Link href="/" className="hover:underline hover:text-blue-600" onClick={onToggle}>Home</Link>
             </Box>
             <Box as="li" m={3}>
-              <Link href="/about" className="hover:underline hover:text-purple-600" onClick={onToggle}>About</Link>
+              <Link href="/about" className="hover:underline hover:text-blue-600" onClick={onToggle}>About</Link>
             </Box>
             <Box as="li" m={3}>
-              <Link href="/contact" className="hover:underline hover:text-purple-600" onClick={onToggle}>Contact Us</Link>
+              <Link href="/contact" className="hover:underline hover:text-blue-600" onClick={onToggle}>Contact Us</Link>
             </Box>
             <Box as="li" m={3}>
               <Link href="/admin" className="border-2 p-1 hover:bg-black hover:text-white" onClick={onToggle}>Admin Login</Link>

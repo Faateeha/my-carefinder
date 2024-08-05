@@ -2,7 +2,7 @@ import { Box, Text, SimpleGrid, VStack } from "@chakra-ui/react";
 
 export default function HowItWorks() {
   return (
-    <Box w="100%" className="bg-purple-300" py={10} px={4}>
+    <Box w="100%" className="bg-blue-500" py={10} px={4}>
       <Text fontSize="3xl" fontWeight="bold" textAlign="center" mb={6}>
         How It Works.
       </Text>
@@ -11,7 +11,7 @@ export default function HowItWorks() {
           <VStack
             key={index}
             p={6}
-            bg="white"
+            bg="gray.200"
             shadow="md"
             borderRadius="md"
             alignItems="start"

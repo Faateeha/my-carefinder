@@ -11,7 +11,7 @@ export default function Hero() {
     });
   }, []);
   return (
-    <div className="relative w-full h-[600px]" data-aos="zoom-out">
+    <div className="relative w-full h-[400px]" data-aos="zoom-out">
       <Image
         src="/Images/carefinder6.webp"
         alt="carefinder"

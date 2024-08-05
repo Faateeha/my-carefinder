@@ -12,7 +12,7 @@ export default function Newsletter() {
   }, []);
 
   return (
-    <Box w="100%" bg="purple.500" py={10}>
+    <Box w="100%" bg="blue.500" py={10}>
       <Text
         data-aos="zoom-in"
         fontSize="3xl"
@@ -41,7 +41,7 @@ export default function Newsletter() {
               borderColor="gray.300"
               borderRadius="md"
             />
-            <Button colorScheme="purple" ml={2}>
+            <Button colorScheme="blue" ml={2}>
               Subscribe
             </Button>
           </Flex>

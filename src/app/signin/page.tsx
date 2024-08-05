@@ -71,7 +71,7 @@ const SignIn: React.FC = () => {
         <Box display={{ base: "none", lg: "block" }} flex="1">
           <Image
             data-aos="fade-right"
-            src="/Images/signin.png"
+            src="/Images/log.png"
             alt="Sign In"
             boxSize="full"
             objectFit="cover"
@@ -102,12 +102,12 @@ const SignIn: React.FC = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button colorScheme="purple" onClick={handleSignin} w="full">
+          <Button colorScheme="blue" onClick={handleSignin} w="full">
             Sign In
           </Button>
           <Button
             variant="link"
-            colorScheme="purple"
+            colorScheme="blue"
             onClick={handleForgotPassword}
           >
             Forgot Password?
@@ -122,12 +122,12 @@ const SignIn: React.FC = () => {
             Sign In with Google
           </Button>
           <Link href="/signup">
-            <Text color="purple.500" _hover={{ textDecoration: "underline" }}>
+            <Text color="blue.500" _hover={{ textDecoration: "underline" }}>
               Don't have an account? Sign Up
             </Text>
           </Link>
           <Link href="/">
-            <Text color="purple.500" _hover={{ textDecoration: "underline" }}>
+            <Text color="blue.500" _hover={{ textDecoration: "underline" }}>
               <b>Go back to home page</b>
             </Text>
           </Link>

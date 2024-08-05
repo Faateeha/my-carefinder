@@ -56,7 +56,7 @@ const AdminDashboard = () => {
         p={6}
         my={10}
       >
-        <Text fontSize="4xl" fontWeight="bold" mb={4} color="purple.600">
+        <Text fontSize="4xl" fontWeight="bold" mb={4} color="blue.500">
           Admin Dashboard
         </Text>
         <Text fontSize="xl" mb={6}>

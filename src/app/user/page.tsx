@@ -29,7 +29,7 @@ const UserDashboard = () => {
   }
 
   return (
-    <Box className="container my-10 mx-auto px-4 py-20 text-purple-400">
+    <Box className="container  px-4 py-20 text-blue-400 bg-gray-200">
       {user && (
         <VStack spacing={4} align="start">
           <Text fontSize="3xl" fontWeight="bold">
@@ -42,10 +42,10 @@ const UserDashboard = () => {
             If you need any help, feel free to reach out to our support team.
           </Text>
           <Flex>
-            <Button colorScheme="purple" mr={2}>
+            <Button colorScheme="blue" mr={2}>
               Edit Profile
             </Button>
-            <Button colorScheme="purple" variant="outline">
+            <Button colorScheme="blue" variant="outline">
               View Activities
             </Button>
           </Flex>
