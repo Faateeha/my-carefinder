@@ -1,6 +1,5 @@
-
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import hospitalData from "@/data/data.json";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -10,24 +9,37 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/app/firebase";
 import { Parser } from 'json2csv';
 
+interface HospitalData {
+  "Hospital name": string;
+  address: string;
+  contact: string;
+}
 
 const SearchComponent: React.FC = () => {
   useEffect(() => {
     Aos.init({
       duration: 1000
-    })
+    });
   }, []);
-  interface HospitalData {
-    "Hospital name": string;
-    address: string;
-    contact: string;
-  }
 
   const [query, setQuery] = useState('');
   const [filteredHospitals, setFilteredHospitals] = useState<HospitalData[]>([]);
   const [page, setPage] = useState(0);
   const [hospitals, setHospitals] = useState<HospitalData[]>([]);
   const itemsPerPage = 12;
+
+  const fetchHospitalsFromFirebase = useCallback(async (): Promise<HospitalData[]> => {
+    const hospitalsCollection = collection(db, "hospitals");
+    const snapshot = await getDocs(hospitalsCollection);
+    return snapshot.docs.map(doc => {
+      const data = doc.data();
+      return {
+        "Hospital name": data.name || "",
+        address: data.address || "",
+        contact: data.contact || ""
+      } as HospitalData;
+    });
+  }, []);
 
   useEffect(() => {
     const loadHospitals = async () => {
@@ -41,7 +53,7 @@ const SearchComponent: React.FC = () => {
     };
 
     loadHospitals();
-  }, []);
+  }, [fetchHospitalsFromFirebase]);
 
   useEffect(() => {
     const searchHospitals = (query: string) => {
@@ -55,19 +67,6 @@ const SearchComponent: React.FC = () => {
     searchHospitals(query);
   }, [query, hospitals]);
 
-  const fetchHospitalsFromFirebase = async (): Promise<HospitalData[]> => {
-    const hospitalsCollection = collection(db, "hospitals");
-    const snapshot = await getDocs(hospitalsCollection);
-    return snapshot.docs.map(doc => {
-      const data = doc.data();
-      return {
-        "Hospital name": data.name || "",
-        address: data.address || "",
-        contact: data.contact || ""
-      } as HospitalData;
-    });
-  };
-
   const exportToCSV = () => {
     const parser = new Parser();
     const csv = parser.parse(filteredHospitals);
@@ -80,20 +79,18 @@ const SearchComponent: React.FC = () => {
     link.click();
     document.body.removeChild(link);
   };
+
   const handleShare = () => {
     const maxHospitals = 5; // Limit to the first 5 hospitals to avoid exceeding URL length
     const limitedHospitals = filteredHospitals.slice(0, maxHospitals);
-  
+
     const encodedData = encodeURIComponent(JSON.stringify(limitedHospitals));
     const shareUrl = `${window.location.origin}/share-hospitals?data=${encodedData}`;
-  
+
     const mailtoLink = `mailto:?subject=Check out this list of hospitals&body=I found this list of hospitals using Carefinder:%0A%0A${shareUrl}%0A%0AOnly the first ${maxHospitals} hospitals are included.`;
-  
+
     window.location.href = mailtoLink;
   };
-  
-  
-  
 
   const paginatedHospitals = filteredHospitals.slice(
     page * itemsPerPage,
@@ -101,7 +98,7 @@ const SearchComponent: React.FC = () => {
   );
 
   return (
-    <Box p={6} dat-aos="zoom-in-down">
+    <Box p={6} data-aos="zoom-in-down">
       <Input
         placeholder="Enter your location"
         value={query}
@@ -132,8 +129,8 @@ const SearchComponent: React.FC = () => {
         Export to CSV
       </Button>
       <Button colorScheme="blue" mt={4} ml={3} onClick={handleShare}>
-  Share Hospitals
-</Button>
+        Share Hospitals
+      </Button>
 
       <Box mt={4} display="flex" justifyContent="space-between">
         <Button
@@ -156,4 +153,5 @@ const SearchComponent: React.FC = () => {
 };
 
 export default SearchComponent;
+
 

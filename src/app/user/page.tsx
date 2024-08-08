@@ -14,7 +14,7 @@ const UserDashboard = () => {
       // Redirect to home or login if the user is not authenticated
       router.push("/");
     }
-  }, [user, loading]);
+  }, [user, loading, router]);
 
   if (loading) {
     return (

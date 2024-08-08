@@ -15,6 +15,12 @@ const AdminMarkdownEditor: React.FC = () => {
   const [address, setAddress] = useState<string>("");
   const [contact, setContact] = useState<string>("");
 
+  const handleContentChange = (value?: string) => {
+    if (value !== undefined) {
+      setContent(value);
+    }
+  };
+
   const handleSave = async () => {
     try {
       const hospitalsCollection = collection(db, "hospitals");
@@ -71,7 +77,7 @@ const AdminMarkdownEditor: React.FC = () => {
       >
         <MDEditor
           value={content}
-          onChange={setContent}
+          onChange={handleContentChange}
           height={400}
         />
       </Box>
@@ -83,5 +89,6 @@ const AdminMarkdownEditor: React.FC = () => {
 };
 
 export default AdminMarkdownEditor;
+
 
 

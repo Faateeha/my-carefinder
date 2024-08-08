@@ -46,7 +46,7 @@ const About: React.FC = () => {
           justify="center"
           px={6}
           direction={{ base: "column", md: "row" }}
-          spacing={8}
+          gap={8}
         >
           <Box flexShrink={0} w="full" maxW="md" mt={{ base: 8, md: 0 }}>
             <Image

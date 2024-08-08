@@ -42,7 +42,7 @@ export default function Home() {
         data-aos="fade-up"
         px={6}
         direction={{ base: "column", md: "row" }}
-        spacing={8}
+        gap={8}
       >
         <VStack
           align="center"
@@ -83,7 +83,7 @@ export default function Home() {
         data-aos="fade-up"
         px={6}
         direction={{ base: "column", md: "row" }}
-        spacing={8}
+        gap={8}
       >
         <VStack
           align="start"

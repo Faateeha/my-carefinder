@@ -32,20 +32,20 @@ const NotFoundPage: React.FC = () => {
         maxW={{ base: '100%', md: '50%' }}
         pl={{ base: 0, md: 6 }}
       >
-        <Text fontSize="6xl" fontWeight="bold" color="purple.700">
+        <Text fontSize="6xl" fontWeight="bold" color="blue.600">
           404
         </Text>
-        <Text fontSize="2xl" color="purple.600">
+        <Text fontSize="2xl" color="blue.600">
           Oops! The page you&apos;re looking for doesn&apos;t exist.
         </Text>
         <Stack spacing={4} direction={{ base: 'column', md: 'row' }}>
           <Link href="/">
-            <Button colorScheme="purple" size="lg">
+            <Button colorScheme="blue" size="lg">
               Go Back to Home
             </Button>
           </Link>
           <Link href="/contact">
-            <Button variant="outline" colorScheme="purple" size="lg">
+            <Button variant="outline" colorScheme="blue" size="lg">
               Contact Us
             </Button>
           </Link>

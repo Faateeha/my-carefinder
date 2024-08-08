@@ -123,7 +123,7 @@ const SignIn: React.FC = () => {
           </Button>
           <Link href="/signup">
             <Text color="blue.500" _hover={{ textDecoration: "underline" }}>
-              Don't have an account? Sign Up
+              Don&apos;t have an account? Sign Up
             </Text>
           </Link>
           <Link href="/">

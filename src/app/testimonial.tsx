@@ -50,7 +50,7 @@ export default function Testimonial() {
             className="bg-blue-500"
           >
             <Text fontSize="lg" mb={4}>
-              "{review.review}"
+              &quot;{review.review}&quot;
             </Text>
             <Divider />
             <Text fontSize="sm" mt={4} fontWeight="bold" color="gray.600">

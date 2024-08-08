@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
           </Flex>
         </Stack>
 
-        <Flex justify="space-between" flex="2" direction={{ base: 'column', md: 'row', lg: 'row' }} spacing={6} flexWrap="wrap">
+        <Flex justify="space-between" flex="2" direction={{ base: 'column', md: 'row', lg: 'row' }} gap={6} flexWrap="wrap">
           <Stack spacing={2} className="font-medium" flex="1" minW={{ base: "full", md: "auto" }}>
             <Text fontWeight="bold">Information</Text>
             <Link href="#">Careers</Link>
