@@ -1,6 +1,7 @@
 "use client";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import React from "react";
 import { useEffect } from "react";
 import { Box, Text, Flex, Button, Input } from "@chakra-ui/react";
 

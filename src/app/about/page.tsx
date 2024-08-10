@@ -9,6 +9,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import Hero from "@/app/hero";
+import React from "react";
 import Image from "next/image";
 const About: React.FC = () => {
   return (

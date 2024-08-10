@@ -1,23 +1,14 @@
-import type { Config } from '@jest/types';
-
-// Sync object
-const config: Config.InitialOptions = {
+module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-    '^.+\\.jsx?$': 'babel-jest',
+    '^.+\\.(ts|tsx)$': 'babel-jest',
   },
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1', // Adjust this if you use aliases
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy', // Handle CSS imports if needed
+    '^@/(.*)$': '<rootDir>/src/$1', // Adjust this based on your path alias
+    '\\.(css|less|scss|sass)$': '<rootDir>/jest.mock.js', // Add this line
   },
-  testPathIgnorePatterns: ['/node_modules/', '/.next/'], // Adjust paths if necessary
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'], // Path to your setup file
+  transformIgnorePatterns: ['<rootDir>/node_modules/(?!aos/.*)'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'], // Add this line
 };
-
-export default config;
-
-
-
-

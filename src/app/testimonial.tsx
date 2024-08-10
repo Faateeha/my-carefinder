@@ -1,4 +1,5 @@
 import Aos from "aos";
+import React from "react";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { Box, Divider, Text, VStack, Flex } from "@chakra-ui/react";

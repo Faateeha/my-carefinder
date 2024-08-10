@@ -1,6 +1,7 @@
 // app/not-found.tsx
 import { Box, Text, Button, Image, Stack } from '@chakra-ui/react';
 import Link from 'next/link';
+import React from 'react';
 
 const NotFoundPage: React.FC = () => {
   return (

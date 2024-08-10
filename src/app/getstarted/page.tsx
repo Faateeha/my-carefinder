@@ -5,7 +5,7 @@ import Hero from "@/app/hero";
 import { Text, Heading, Box } from "@chakra-ui/react";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 const GetStarted: React.FC = () => {
   useEffect(() => {
