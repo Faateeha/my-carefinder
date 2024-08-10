@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import HowItWorks from '@/app/how'; // Adjust the import path as necessary
+import HowItWorks from '@/app/how'; 
 import '@testing-library/jest-dom';
 import React from 'react';
 

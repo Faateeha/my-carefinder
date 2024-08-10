@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom'; // Import this to use toBeInTheDocument
+import '@testing-library/jest-dom'; 
 import Hero from '@/app/hero';
 
 describe('Hero Component', () => {

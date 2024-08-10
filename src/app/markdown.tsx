@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import { Box, Button, VStack, Input, FormControl, FormLabel } from "@chakra-ui/react";
 import { db } from "@/app/firebase";
 
-// Dynamically import the markdown editor to avoid SSR issues
+
 const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 
 const AdminMarkdownEditor: React.FC = () => {
