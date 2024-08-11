@@ -13,10 +13,10 @@ export default function Newsletter() {
   }, []);
 
   return (
-    <Box w="100%" bg="blue.500" py={10}>
+    <Box w="100%" bg="gray.200" py={10}>
       <Text
         data-aos="zoom-in"
-        fontSize="3xl"
+        fontSize="4xl"
         fontWeight="bold"
         textAlign="center"
         mb={6}

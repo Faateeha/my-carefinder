@@ -157,8 +157,8 @@ const Navbar: React.FC = () => {
                 </Menu>
               ) : (
                 <Flex flexDirection="column" alignItems="center">
-                  <Link href="/signin" className="border-2 px-3 py-2 rounded-3xl text-purple-600 border-purple-600 m-2" onClick={onToggle}>Log In</Link>
-                  <Link href="/signup" className="border-2 px-3 py-2 rounded-3xl bg-purple-600 border-purple-600 text-white hover:bg-white hover:text-purple-600 m-2" onClick={onToggle}>Signup</Link>
+                  <Link href="/signin" className="border-2 px-3 py-2 rounded-3xl text-blue-600 border-blue-600 m-2" onClick={onToggle}>Log In</Link>
+                  <Link href="/signup" className="border-2 px-3 py-2 rounded-3xl bg-blue-600 border-blue-600 text-white hover:bg-white hover:text-blue-600 m-2" onClick={onToggle}>Signup</Link>
                 </Flex>
               )}
             </Box>
