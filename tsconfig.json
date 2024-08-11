@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -8,20 +9,21 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "./",
+    "baseUrl": ".", // Set baseUrl to the root directory
     "paths": {
       "@/*": [
-        "./src/*"
-      ]
+        "src/*"
+      ] // Adjust based on your directory structure
     },
+    "module": "esnext",
     "plugins": [
       {
         "name": "next"

@@ -1,8 +1,8 @@
 "use client";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "@/app/firebase";
+import { auth } from "../firebase";
 import { Box, Text, Button, VStack, Flex, Spinner, Center } from "@chakra-ui/react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 const UserDashboard = () => {

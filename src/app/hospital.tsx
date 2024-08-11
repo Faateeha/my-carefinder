@@ -1,4 +1,5 @@
 // services/hospitalService.ts
+import React from 'react';
 import { db } from '@/app/firebase'; // Adjust the import path as needed
 import { collection, getDocs } from 'firebase/firestore';
 

@@ -2,7 +2,7 @@
 
 
 import { Box, Button, Input, Text, VStack, Heading, Image } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";

@@ -3,7 +3,7 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "@/app/firebase";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Text, Spinner, Center, Container } from "@chakra-ui/react";
 import { doc, getDoc } from "firebase/firestore";
 import MarkDownEditor from "@/app/markdown";

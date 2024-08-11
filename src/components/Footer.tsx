@@ -1,4 +1,5 @@
 import Image from "next/image";
+import React from 'react';
 import { FaTwitter } from "react-icons/fa";
 import { FiLinkedin } from "react-icons/fi";
 import { SiGithub } from "react-icons/si";

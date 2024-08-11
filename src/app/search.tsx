@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import hospitalData from "@/data/data.json";
 import Aos from "aos";
 import "aos/dist/aos.css";
