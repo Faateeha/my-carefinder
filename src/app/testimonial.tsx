@@ -26,7 +26,7 @@ export default function Testimonial() {
   }, []);
 
   return (
-    <Box className="container mx-auto px-4 py-8 shadow-2xl">
+    <Box className="container mx-auto px-4 py-8 shadow-md">
       <Text data-aos="zoom-in" fontSize="4xl" fontWeight="bold" textAlign="center" mb={6}>
         Testimonials
       </Text>
@@ -42,12 +42,11 @@ export default function Testimonial() {
             data-aos="fade-up"
             p={6}
             rounded="md"
-            shadow="md"
             w={{ base: "full", sm: "90%", md: "45%", lg: "30%" }} // Adjust width for responsiveness
             mx={{ base: 0, sm: 2 }} // Add horizontal margin for small screens
             mb={{ base: 4, sm: 6 }} // Add bottom margin for spacing
             textAlign="center"
-            className="bg-blue-500"
+            className="bg-blue-500 shadow-2xl"
           >
             <Text fontSize="lg" mb={4}>
               &quot;{review.review}&quot;

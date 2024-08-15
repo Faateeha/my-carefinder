@@ -20,12 +20,12 @@ export default function Newsletter() {
         fontWeight="bold"
         textAlign="center"
         mb={6}
-        color="white"
+        color="black"
       >
         Newsletter
       </Text>
       <Flex justifyContent="center" alignItems="center">
-        <Box p={6} rounded="md" shadow="md" w="full" maxW="xl" bg="white">
+        <Box p={6} rounded="md" shadow="2xl" w="full" maxW="xl" bg="white">
           <Text fontSize="2xl" fontWeight="bold" textAlign="center" mb={4}>
             Connecting You To Care!
           </Text>

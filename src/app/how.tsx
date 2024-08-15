@@ -13,9 +13,9 @@ export default function HowItWorks() {
             key={index}
             p={6}
             bg="gray.200"
-            shadow="2xl"
             borderRadius="md"
             alignItems="start"
+            className="shadow-2xl"
           >
             <Text fontSize="xl" fontWeight="bold" mb={2}>
               {section.title}
