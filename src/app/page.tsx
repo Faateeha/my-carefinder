@@ -87,7 +87,7 @@ export default function Home() {
       >
         <VStack
           align="start"
-          spacing={4}
+          spacing={5}
           maxW="lg"
           textAlign={{ base: "center", md: "left" }}
         >
@@ -106,7 +106,7 @@ export default function Home() {
             alt="Healthcare"
             layout="responsive"
             width={800}
-            height={400}
+            height={350}
             className="rounded-lg"
           />
         </Box>
