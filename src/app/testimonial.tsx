@@ -6,7 +6,7 @@ import { Box, Divider, Text, Flex } from "@chakra-ui/react";
 const reviews = [
   {
     name: "John Doe",
-    review: "Carefinder has completely transformed the way I find healthcare facilities. It's fast, reliable, and incredibly user-friendly.",
+    review: "Carefinder has completely transformed the way I find healthcare facilities in general. It's fast, reliable, useful and incredibly user-friendly.",
   },
   {
     name: "Jane Smith",

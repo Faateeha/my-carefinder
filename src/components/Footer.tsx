@@ -46,26 +46,26 @@ const Footer: React.FC = () => {
         <Flex justify="space-between" flex="2" direction={{ base: 'column', md: 'row', lg: 'row' }} gap={6} flexWrap="wrap">
           <Stack spacing={2} className="font-medium" flex="1" minW={{ base: "full", md: "auto" }}>
             <Text fontWeight="bold">Information</Text>
-            <Link href="#" className="hover:text-gray-600">Careers</Link>
-            <Link href="#" className="hover:text-gray-600">Our Mission</Link>
-            <Link href="#">Our Vision</Link>
-            <Link href="#">Terms and Conditions</Link>
-            <Link href="#">Help</Link>
-            <Link href="#">Sign up as an Admin</Link>
+            <Link href="#" className="hover:text-gray-800">Careers</Link>
+            <Link href="#" className="hover:text-gray-800">Our Mission</Link>
+            <Link href="#" className="hover:text-gray-800">Our Vision</Link>
+            <Link href="#" className="hover:text-gray-800">Terms and Conditions</Link>
+            <Link href="#" className="hover:text-gray-800">Help</Link>
+            <Link href="#" className="hover:text-gray-800">Sign up as an Admin</Link>
           </Stack>
           <Stack spacing={2} className="font-medium" mt={{ base: 6, md: 0 }} ml={{ base: 0, lg: 10 }} flex="1" minW={{ base: "full", md: "auto" }}>
             <Text fontWeight="bold">Quick Links</Text>
-            <Link href="/about">About</Link>
-            <Link href="#">Contact Us</Link>
-            <Link href="#">Book an Appointment</Link>
-            <Link href="#">Frequently Asked Questions</Link>
+            <Link href="/about" className="hover:text-gray-800">About</Link>
+            <Link href="#" className="hover:text-gray-800">Contact Us</Link>
+            <Link href="#" className="hover:text-gray-800">Book an Appointment</Link>
+            <Link href="#" className="hover:text-gray-800">Frequently Asked Questions</Link>
           </Stack>
           <Stack spacing={2} className="font-medium" mt={{ base: 6, md: 0 }} ml={{ base: 0, lg: 10 }} flex="1" minW={{ base: "full", md: "auto" }}>
             <Text fontWeight="bold">Company</Text>
-            <Link href="/about">About Us</Link>
-            <Link href="/getstarted">Get Started</Link>
-            <Link href="/contact">Contact Us</Link>
-            <Link href="/testimonial">Testimonials</Link>
+            <Link href="/about" className="hover:text-gray-800">About Us</Link>
+            <Link href="/getstarted" className="hover:text-gray-800">Get Started</Link>
+            <Link href="/contact" className="hover:text-gray-800">Contact Us</Link>
+            <Link href="/testimonial" className="hover:text-gray-800">Testimonials</Link>
           </Stack>
         </Flex>
       </Flex>
