@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <Text className="">
           <Image
-            src="/Images/carefinder-logo...png"
+            src="/Images/care-org.png"
             alt="Carefinder logo"
             width={100}
             height={75}

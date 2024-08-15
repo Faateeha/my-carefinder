@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
       >
         <Stack spacing={4} flex="1" mb={{ base: 6, lg: 0 }} mr={{ lg: 10 }}>
           <Image
-            src="/Images/carefinder-logo...png"
+            src="/Images/care-org.png"
             alt="Carefinder logo"
             width={100}
             height={75}

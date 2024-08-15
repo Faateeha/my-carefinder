@@ -13,7 +13,7 @@ export default function HowItWorks() {
             key={index}
             p={6}
             bg="gray.200"
-            shadow="md"
+            shadow="2xl"
             borderRadius="md"
             alignItems="start"
           >

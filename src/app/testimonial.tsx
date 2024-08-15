@@ -10,7 +10,7 @@ const reviews = [
   },
   {
     name: "Jane Smith",
-    review: "The Carefinder app is a lifesaver! I was able to quickly find a hospital near me and book an appointment with ease.",
+    review: "The Carefinder app is a lifesaver and its been really useful! I was able to quickly find a hospital near me and book an appointment with ease.",
   },
   {
     name: "Michael Johnson",
@@ -26,7 +26,7 @@ export default function Testimonial() {
   }, []);
 
   return (
-    <Box className="container mx-auto px-4 py-8">
+    <Box className="container mx-auto px-4 py-8 shadow-2xl">
       <Text data-aos="zoom-in" fontSize="4xl" fontWeight="bold" textAlign="center" mb={6}>
         Testimonials
       </Text>
