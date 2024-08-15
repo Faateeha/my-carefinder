@@ -16,7 +16,7 @@ const About: React.FC = () => {
     <div>
       <Hero />
       <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-200">
-        <Heading as="h1" size="lg" className="mx-3">
+        <Heading as="h1" size="lg" className="my-3">
           About Carefinder
         </Heading>
 
@@ -27,7 +27,7 @@ const About: React.FC = () => {
           transparent for everyone.
         </Text>
 
-        <Heading as="h2" size="lg" className="mx-3">
+        <Heading as="h2" size="lg" className="my-3">
           Purpose
         </Heading>
         <Text fontSize="lg">
@@ -38,7 +38,7 @@ const About: React.FC = () => {
           hospital data.
         </Text>
 
-        <Heading as="h2" size="lg" className="py-2 mx-3" >
+        <Heading as="h2" size="lg" className="py-2 my-3" >
           Features
         </Heading>
         <Flex
@@ -56,7 +56,7 @@ const About: React.FC = () => {
               layout="responsive"
               width={800}
               height={400}
-              className="rounded-lg"
+              className="rounded-lg shadow-2xl"
             />
           </Box>
           <VStack
@@ -87,7 +87,7 @@ const About: React.FC = () => {
           </VStack>
         </Flex>
 
-        <Heading as="h2" size="lg" className="mx-3">
+        <Heading as="h2" size="lg" className="my-3">
           User Benefits
         </Heading>
         <Text fontSize="lg">
@@ -98,7 +98,7 @@ const About: React.FC = () => {
           has you covered.
         </Text>
 
-        <Heading as="h2" size="lg" className="mx-3">
+        <Heading as="h2" size="lg" className="my-3">
           Technology
         </Heading>
         <Text fontSize="lg">
@@ -108,7 +108,7 @@ const About: React.FC = () => {
           experience.
         </Text>
 
-        <Heading as="h2" size="lg" className="mx-3">
+        <Heading as="h2" size="lg" className="my-3">
           Future Plans
         </Heading>
         <Text fontSize="lg">
@@ -118,7 +118,7 @@ const About: React.FC = () => {
           features!
         </Text>
 
-        <Heading as="h2" size="lg" className="mx-3">
+        <Heading as="h2" size="lg" className="my-3">
           Contact Us
         </Heading>
         <Text fontSize="lg">

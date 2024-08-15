@@ -25,7 +25,7 @@ function Contact() {
               placeholder="Name" 
               className="form-input" 
               size="md" 
-              focusBorderColor="purple.500" 
+              focusBorderColor="blue.500" 
             />
             <Input 
               type="email" 
@@ -33,7 +33,7 @@ function Contact() {
               placeholder="Email" 
               className="form-input" 
               size="md" 
-              focusBorderColor="purple.500" 
+              focusBorderColor="blue.500" 
             />
             <Textarea 
               name="message" 
@@ -42,7 +42,7 @@ function Contact() {
               placeholder="Message" 
               className="form-input" 
               size="md" 
-              focusBorderColor="purple.500" 
+              focusBorderColor="blue.500" 
             />
             <Flex justify="center" pt={2}>
               <Button 

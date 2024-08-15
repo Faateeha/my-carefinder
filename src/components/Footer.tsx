@@ -29,16 +29,16 @@ const Footer: React.FC = () => {
           <Text>Follow us on Social Media</Text>
           <Flex justify="space-between" width={{ base: 'full', md: '75%' }} my={6}>
             <Link href="https://x.com/Adeyemi_fathia_" isExternal>
-              <FaTwitter size="24" />
+              <FaTwitter size="24" className="hover:text-gray-600" />
             </Link>
             <Link href="https://linkedin.com/in/adeyemi-fathia-a73908270" isExternal>
-              <FiLinkedin size="24" />
+              <FiLinkedin size="24" className="hover:text-gray-600"/>
             </Link>
             <Link href="https://github.com/Faateeha" isExternal>
-              <SiGithub size="24" />
+              <SiGithub size="24" className="hover:text-gray-600"/>
             </Link>
             <Link href="mailto:fathiaomolara02@gmail.com" isExternal>
-              <MdOutlineMailOutline size="24" />
+              <MdOutlineMailOutline size="24" className="hover:text-gray-600"/>
             </Link>
           </Flex>
         </Stack>
@@ -46,8 +46,8 @@ const Footer: React.FC = () => {
         <Flex justify="space-between" flex="2" direction={{ base: 'column', md: 'row', lg: 'row' }} gap={6} flexWrap="wrap">
           <Stack spacing={2} className="font-medium" flex="1" minW={{ base: "full", md: "auto" }}>
             <Text fontWeight="bold">Information</Text>
-            <Link href="#">Careers</Link>
-            <Link href="#">Our Mission</Link>
+            <Link href="#" className="hover:text-gray-600">Careers</Link>
+            <Link href="#" className="hover:text-gray-600">Our Mission</Link>
             <Link href="#">Our Vision</Link>
             <Link href="#">Terms and Conditions</Link>
             <Link href="#">Help</Link>
