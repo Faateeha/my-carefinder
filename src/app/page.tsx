@@ -58,7 +58,7 @@ export default function Home() {
             health is our priority, and we&apos;re here to connect you to the
             best care available.
           </Text>
-          <Button colorScheme="blue" size="lg" className="mt-4" onClick={handleGetStartedClick}>Get Started</Button>
+          <Button colorScheme="blue" size="lg" className="mt-4 rounded-md" onClick={handleGetStartedClick}>Get Started</Button>
           
         </VStack>
 
