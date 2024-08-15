@@ -39,7 +39,7 @@ const SignIn: React.FC = () => {
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      router.push("/");
+      router.push("/getstarted");
     } catch (error: any) {
       setError(error.message);
     }
