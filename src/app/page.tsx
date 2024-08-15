@@ -68,7 +68,7 @@ export default function Home() {
             alt="Healthcare"
             layout="responsive"
             width={800}
-            height={400}
+            height={350}
             className="rounded-lg"
           />
         </Box>
